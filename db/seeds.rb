@@ -24,3 +24,9 @@ artists = Artist.create([
   { name: "Bad Company", country: "England", bio: "Bad Company are an English rock supergroup that was formed in 1973 by singer Paul Rodgers, guitarist Mick Ralphs, drummer Simon Kirke and bassist Boz Burrell.[1] Peter Grant, who managed the rock band Led Zeppelin, also managed Bad Company until 1982.", label_id: 4 },
   ])
   # { name: "", country: "", bio: "", label_id:  }
+publishers = Publisher.create([
+  { name: "Univeral Music Publishing Group", city: "Los Angeles", country: "USA" },
+  { name: "Ditto Music Publishing", city: "Paris", country: "France" },
+  { name: "Sony ATV Music Publishing", city: "Tokyo", country: "Japan" },
+  ])
+  # { name: "", city: "", country: "" }
