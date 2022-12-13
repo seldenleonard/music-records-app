@@ -113,30 +113,30 @@ publishers = 15.times do |index|
   )
 end
 
-records = 1000.times do |index|
-  Record.create!(
-     title: Faker::Fantasy::Tolkien.unique.location,
-     seconds: Faker::Number.between(from: 90, to: 400),
-     genre: Faker::Music.genre,
-     artist_id: Faker::Number.between(from: 1, to: 40),
-     album_id: Faker::Number.between(from: 1, to: 100)
-  )
-end
-
-features = 250.times do |index|
-  Feature.create!(
-    artist_id: Faker::Number.between(from: 1, to: 40),
-    record_id: Faker::Number.between(from: 1, to: 1000)
-  )
-end
-
 albums = 100.times do |index|
   Album.create!(
     title: Faker::Music.album,
     release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
     # tracks_count: ,
     # tracks_count_seconds: ,
-    artist_id: Faker::Number.between(from: 1, to: 40),
-    publisher_id: Faker::Number.between(from: 1, to: 15)
+    artist_id: Faker::Number.between(from: Artist.ids.min, to: Artist.ids.max),
+    publisher_id: Faker::Number.between(from: Publisher.ids.min, to: Publisher.ids.max)
+  )
+end
+
+records = 1000.times do |index|
+  Record.create!(
+     title: Faker::Fantasy::Tolkien.unique.location,
+     seconds: Faker::Number.between(from: 90, to: 400),
+     genre: Faker::Music.genre,
+     artist_id: Faker::Number.between(from: Artist.ids.min, to: Artist.ids.max),
+     album_id: Faker::Number.between(from: Album.ids.min, to: Album.ids.max)
+    )
+end
+
+features = 250.times do |index|
+  Feature.create!(
+    artist_id: Faker::Number.between(from: Artist.ids.min, to: Artist.ids.max),
+    record_id: Faker::Number.between(from: Record.ids.min, to: Record.ids.max)
   )
 end
