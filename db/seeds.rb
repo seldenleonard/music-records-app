@@ -90,53 +90,53 @@
 labels = 10.times do |index|
   Label.create!(
      name: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
-     city: Faker::City,
-     country: Faker::Nation,
-     independant: Faker::Boolean
+     city: Faker::Nation.capital_city,
+     country: Faker::Address.country,
+     independant: Faker::Boolean.boolean(true_ratio: 0.5)
   )
 end
 
-artists = 30.times do |index|
+artists = 40.times do |index|
   Artist.create!(
      name: Faker::Music.band,
-     country: Faker::Nation,
-     bio: (word_count: 25, supplemental: false, random_words_to_add: 0),
+     country: Faker::Address.country,
+     bio: Faker::Lorem.sentence(word_count: 25, supplemental: false, random_words_to_add: 0),
      label_id: Faker::Number.between(from: 1, to: 10)
     )
 end
 
-publishers = 5.times do |index|
+publishers = 15.times do |index|
   Publisher.create!(
      name: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
-     city: "",
-     country: ""
+     city: Faker::Nation.capital_city,
+     country: Faker::Address.country
   )
 end
 
 albums = 100.times do |index|
   Album.create!(
-    title: "",
+    title: Faker::Music.album,
     release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
-    tracks_count: ,
-    tracks_count_seconds: ,
-    artist_id: ,
-    publisher_id:
+    # tracks_count: ,
+    # tracks_count_seconds: ,
+    artist_id: Faker::Number.between(from: 1, to: 40),
+    publisher_id: Faker::Number.between(from: 1, to: 15)
   )
 end
 
 records = 1000.times do |index|
   Record.create!(
      title: Faker::Music.band,
-     seconds: ,
+     seconds: Faker::Number.between(from: 90, to: 400),
      genre: Faker::Music.genre,
-     artist_id: ,
-     album_id:
+     artist_id: Faker::Number.between(from: 1, to: 40),
+     album_id: Faker::Number.between(from: 1, to: 100)
   )
 end
 
 features = 250.times do |index|
   Feature.create!(
-     artist_id: ,
-     record_id: 
+    artist_id: Faker::Number.between(from: 1, to: 40),
+    record_id: Faker::Number.between(from: 1, to: 1000)
   )
 end
