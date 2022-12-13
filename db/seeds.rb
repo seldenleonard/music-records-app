@@ -117,7 +117,7 @@ albums = 100.times do |index|
   Album.create!(
     title: Faker::Music.album,
     release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
-    # tracks_count: ,
+    # tracks_count: , # NEED TO FIGURE OUT HOW TO POPULATE THIS ATTRIBUTE WITH DATA FROM RECORDS MODEL, BUT THE ISSUE IS THAT IN ORDER FOR THE FORIEGN KEYS TO BE POPULATED IN RECORDS, RECORDS HAS TO COME AFTER ABLUMS IN THE SEEDS FILE
     # tracks_count_seconds: ,
     artist_id: Faker::Number.between(from: Artist.ids.min, to: Artist.ids.max),
     publisher_id: Faker::Number.between(from: Publisher.ids.min, to: Publisher.ids.max)
