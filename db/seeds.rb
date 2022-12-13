@@ -50,3 +50,32 @@ publishers = Publisher.create([
   # { name: "", city: "", country: "" }
   ])
 
+  # CONSIDER IF IM GONNA MAKE THE "tracks_count" AND "tracks_count_seconds" ATTRIBUTES DYNAMIC, in which case I would not manually input the data here in the seeds file
+albums = Album.create([
+  { title: "Mr. Wonderful", release_date: 10/05/2015, tracks_count: 13 , tracks_count_seconds: 2965, artist_id: 8, publisher_id: 1 },
+  { title: "Cocodrillo Turbo", release_date: 11/03/2022, tracks_count: 10, tracks_count_seconds: 1803, artist_id: 8, publisher_id: 2 },
+  { title: "Purple Rain", release_date: 04/16/1984, tracks_count: 9, tracks_count_seconds: [rand(10), ], artist_id: , publisher_id:  },
+  { title: "", release_date: , tracks_count: , tracks_count_seconds: , artist_id: , publisher_id:  },
+  { title: "", release_date: , tracks_count: , tracks_count_seconds: , artist_id: , publisher_id:  },
+  { title: "", release_date: , tracks_count: , tracks_count_seconds: , artist_id: , publisher_id:  }
+  # { title: "", release_date: , tracks_count: , tracks_count_seconds: , artist_id: , publisher_id:  },
+  ])
+records = Record.create([
+  # Songs on Mr. Wonderful Album
+  { title: "Brand New Car", seconds: 201, genre: "Rap", artist_id: 8, album_id: 1 },
+  { title: "Terry", seconds: 176, genre: "Rap", artist_id: 8, album_id: 1 },
+  { title: "Actin Crazy", seconds: 300, genre: "Rap", artist_id: 8, album_id: 1 },
+  # Songs on Cocodrillo Turbo Album
+  { title: "Hound Dog", seconds: 201, genre: "Rap", artist_id: 8, album_id: 2 },
+  { title: "Jaws", seconds: 91, genre: "Rap", artist_id: 8, album_id: 2 },
+  { title: "Subzero", seconds: 324, genre: "Rap", artist_id: 8, album_id: 2 },
+  # Songs on Purple Rain Album
+  { title: "", seconds: 202, genre: "Pop Rock", artist_id: , album_id: 3 },
+  { title: "", seconds: 235, genre: "Pop Rock", artist_id: , album_id: 3 },
+  { title: "", seconds: 212, genre: "Pop Rock", artist_id: , album_id: 3 },
+  { title: "", seconds: , genre: "", artist_id: , album_id:  },
+  { title: "", seconds: , genre: "", artist_id: , album_id:  },
+  { title: "", seconds: , genre: "", artist_id: , album_id:  }
+  # { title: "", seconds: , genre: "", artist_id: , album_id:  }
+  ])
+features = Feature.create([{ : }])
