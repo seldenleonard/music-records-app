@@ -115,7 +115,7 @@ end
 
 albums = 100.times do |index|
   Album.create!(
-    title: Faker::Music.album, # Should make this unique, but got an error when i tried. Perhaps the gem does not have neough unique album names available?
+    title: Faker::Music.album, # Should make this unique, but got an error when i tried. The gem does not have neough unique album names available - it only has 40 album names total. So I can either swap out Music.album for a different generator, include an OR type statement for when it does run out, or just generate 40 unique albums and not exceed that many instances.
     release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
     # tracks_count: , # NEED TO FIGURE OUT HOW TO POPULATE THIS ATTRIBUTE WITH DATA FROM RECORDS MODEL, BUT THE ISSUE IS THAT IN ORDER FOR THE FORIEGN KEYS TO BE POPULATED IN RECORDS, RECORDS HAS TO COME AFTER ABLUMS IN THE SEEDS FILE
     # tracks_count_seconds: ,
