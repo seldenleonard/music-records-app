@@ -80,12 +80,12 @@
 #   ])
 # features = Feature.create([{ : }])
 
-# Artist.destroy_all
-# Label.destroy_all
-# Publisher.destroy_all
-# Album.destroy_all
-# Record.destroy_all
-# Feature.destroy_all
+Artist.destroy_all
+Label.destroy_all
+Publisher.destroy_all
+Album.destroy_all
+Record.destroy_all
+Feature.destroy_all
 
 labels = 10.times do |index|
   Label.create!(
@@ -100,8 +100,8 @@ artists = 40.times do |index|
   Artist.create!(
      name: Faker::Music.band,
      country: Faker::Address.country,
-     bio: Faker::Lorem.sentence(word_count: 25, supplemental: false, random_words_to_add: 0),
-     label_id: Faker::Number.between(from: 1, to: 10)
+     bio: Faker::Quote.most_interesting_man_in_the_world,
+     label_id: Faker::Number.between(from: Label.ids.min, to: Label.ids.max)
     )
 end
 
@@ -113,20 +113,9 @@ publishers = 15.times do |index|
   )
 end
 
-albums = 100.times do |index|
-  Album.create!(
-    title: Faker::Music.album,
-    release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
-    # tracks_count: ,
-    # tracks_count_seconds: ,
-    artist_id: Faker::Number.between(from: 1, to: 40),
-    publisher_id: Faker::Number.between(from: 1, to: 15)
-  )
-end
-
 records = 1000.times do |index|
   Record.create!(
-     title: Faker::Music.band,
+     title: Faker::Fantasy::Tolkien.unique.location,
      seconds: Faker::Number.between(from: 90, to: 400),
      genre: Faker::Music.genre,
      artist_id: Faker::Number.between(from: 1, to: 40),
@@ -138,5 +127,16 @@ features = 250.times do |index|
   Feature.create!(
     artist_id: Faker::Number.between(from: 1, to: 40),
     record_id: Faker::Number.between(from: 1, to: 1000)
+  )
+end
+
+albums = 100.times do |index|
+  Album.create!(
+    title: Faker::Music.album,
+    release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
+    # tracks_count: ,
+    # tracks_count_seconds: ,
+    artist_id: Faker::Number.between(from: 1, to: 40),
+    publisher_id: Faker::Number.between(from: 1, to: 15)
   )
 end
