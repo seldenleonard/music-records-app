@@ -101,7 +101,7 @@ artists = 40.times do |index|
      name: Faker::Music.band,
      country: Faker::Address.country,
      bio: Faker::Quote.most_interesting_man_in_the_world,
-     label_id: Faker::Number.between(from: Label.ids.min, to: Label.ids.max)
+     label_id: Faker::Number.between(from: Label.ids.min, to: Label.ids.max) # there actually is an issue with this. If an instance of a model gets deleted, then the id of that instance is still within this range.
     )
 end
 
