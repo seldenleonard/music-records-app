@@ -89,7 +89,7 @@ Feature.destroy_all
 
 labels = 10.times do |index|
   Label.create!(
-     name: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
+     name: Faker::Lorem.unique.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
      city: Faker::Nation.capital_city,
      country: Faker::Address.country,
      independant: Faker::Boolean.boolean(true_ratio: 0.5)
@@ -98,7 +98,7 @@ end
 
 artists = 40.times do |index|
   Artist.create!(
-     name: Faker::Music.band,
+     name: Faker::Music.unique.band,
      country: Faker::Address.country,
      bio: Faker::Quote.most_interesting_man_in_the_world,
      label_id: Faker::Number.between(from: Label.ids.min, to: Label.ids.max) # there actually is an issue with this. If an instance of a model gets deleted, then the id of that instance is still within this range.
@@ -107,7 +107,7 @@ end
 
 publishers = 15.times do |index|
   Publisher.create!(
-     name: Faker::Lorem.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
+     name: Faker::Lorem.unique.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
      city: Faker::Nation.capital_city,
      country: Faker::Address.country
   )
