@@ -115,7 +115,7 @@ end
 
 albums = 100.times do |index|
   Album.create!(
-    title: Faker::Book.unique.title, 
+    title: Faker::Book.unique.title, # Note, this works too --> Faker::Music.album <-- but the gem does not have enough unique album names available to do --> Faker::Music.unique.album <-- for more than 40 albums, so its just easier to use unique book titles for album names.
     release_date: Faker::Date.between(from: '1948-01-01', to: '2022-12-1'),
     # tracks_count: , # NEED TO FIGURE OUT HOW TO POPULATE THIS ATTRIBUTE WITH DATA FROM RECORDS MODEL, BUT THE ISSUE IS THAT IN ORDER FOR THE FORIEGN KEYS TO BE POPULATED IN RECORDS, RECORDS HAS TO COME AFTER ABLUMS IN THE SEEDS FILE
     # tracks_count_seconds: ,
