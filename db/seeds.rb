@@ -87,6 +87,9 @@ Album.destroy_all
 Record.destroy_all
 Feature.destroy_all
 
+
+# Seeds USING Faker Gem
+
 labels = 10.times do |index|
   Label.create!(
      name: Faker::Lorem.unique.sentence(word_count: 2, supplemental: false, random_words_to_add: 0).chop,
@@ -140,3 +143,8 @@ features = 250.times do |index|
     record_id: Faker::Number.between(from: Record.ids.min, to: Record.ids.max)
   )
 end
+
+# albums/Album.all.attribute = (tracks_count, )
+
+# For every record where album_id == Album.id, tracks_count += 1
+# OR For every record where album_id == Album.id, just set tracks_count = Record.album_id.all-that-match-Album.id . count
